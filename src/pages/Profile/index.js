@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
+import { AuthContext } from "../../contexts/authContext";
+import { Link } from "react-router-dom";
 
 export function Profile() {
   const [user, setUser] = useState({ name: "", email: "" });
   const navigate = useNavigate();
+  const { setLoggedInUser } = useContext(AuthContext);
   useEffect(() => {
     async function fetchUser() {
       const response = await api.get("/user/profile");
@@ -15,7 +18,7 @@ export function Profile() {
   }, []);
 
   function handleLogOut() {
-   localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("loggedInUser");
     setLoggedInUser(null);
     navigate("/");
   }
@@ -24,6 +27,9 @@ export function Profile() {
     <>
       <h1>{user.name}</h1>
       <p>{user.email}</p>
+      <Link to="/profile/edit">
+        <button>Editar</button>
+      </Link>
       <button onClick={handleLogOut}>Sair</button>
     </>
   );

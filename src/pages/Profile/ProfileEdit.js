@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createRoutesFromChildren, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
-import { useNavigate } from "react-router-dom";
 
-export function Signup() {
+export function ProfileEdit() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     email: "",
-    password: "",
-    confirmPassword: "",
   });
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const response = await api.get("/user/profile");
+        console.log(response);
+        delete response.user._id;
+        setForm({ ...response.data });
+      } catch (error) {}
+    }
+    fetchUser();
+  }, []);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,7 +29,7 @@ export function Signup() {
     e.preventDefault();
 
     try {
-      await api.post("/user/signup", { ...form });
+      await api.put("/api/user", { ...form });
 
       navigate("/login");
     } catch (error) {
@@ -46,22 +56,7 @@ export function Signup() {
         value={form.email}
         onChange={handleChange}
       />
-      <label htmlFor="formPassword">Senha:</label>
-      <input
-        id="formPassword"
-        name="password"
-        type="password"
-        value={form.password}
-        onChange={handleChange}
-      />
-      <label htmlFor="formConfirmPassword">Confirmação de senha</label>
-      <input
-        id="formConfirmPassword"
-        type="password"
-        name="confirmPassword"
-        value={form.confirmPassword}
-        onChange={handleChange}
-      />
+
       <button type="submit">Cadastrar</button>
     </form>
   );
