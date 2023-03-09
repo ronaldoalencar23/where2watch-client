@@ -22,11 +22,30 @@ export function Profile() {
     setLoggedInUser(null);
     navigate("/");
   }
-
+  console.log(user);
   return (
     <>
       <h1>{user.name}</h1>
       <p>{user.email}</p>
+      {/* {user &&
+        user.comments.map((currentComment) => {
+          return (
+            <>
+              <h2>{currentComment.header}</h2>
+              <p>{currentComment.body}</p>
+            </>
+          );
+        })}
+      {user &&
+        user.lists.map((currentList) => {
+          return (
+            <>
+              <Link to="/">
+                <h2>{currentList.name}</h2>
+              </Link>
+            </>
+          );
+        })} */}
       <Link to="/profile/edit">
         <button>Editar</button>
       </Link>

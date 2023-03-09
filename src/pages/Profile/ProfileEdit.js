@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createRoutesFromChildren, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 
 export function ProfileEdit() {
@@ -14,9 +14,11 @@ export function ProfileEdit() {
       try {
         const response = await api.get("/user/profile");
         console.log(response);
-        delete response.user._id;
-        setForm({ ...response.data });
-      } catch (error) {}
+        delete response.data._id;
+        setForm(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
     fetchUser();
   }, []);
@@ -29,14 +31,14 @@ export function ProfileEdit() {
     e.preventDefault();
 
     try {
-      await api.put("/api/user", { ...form });
+      await api.put("/user", { ...form });
 
-      navigate("/login");
+      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
   }
-
+  console.log(form);
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="formName">Nome:</label>

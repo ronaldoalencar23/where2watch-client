@@ -8,8 +8,12 @@ import { ErrorPage } from "./pages/ErrorPage";
 import { Feed } from "./pages/Feed";
 import { Navbar } from "./components/Navbar";
 import { ProfileEdit } from "./pages/Profile/ProfileEdit";
+import { Comment } from "./components/Comment";
+import { CreateList } from "./pages/CreateList";
+import { TitleMovie } from "./pages/TitleMovie";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { TitleTvShow } from "./pages/TitlteTvShow";
 
 function App() {
   return (
@@ -28,8 +32,15 @@ function App() {
             path="/profile/edit"
             element={<ProtectedRoute component={ProfileEdit} />}
           />
+          <Route path="/create-list" element={<CreateList />} />
+          <Route path="/title/movie/:id" element={<TitleMovie />} />
+          <Route path="/title/tv-show/:id" element={<TitleTvShow />} />
           <Route path="/feed" element={<ProtectedRoute component={Feed} />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="/comment"
+            element={<ProtectedRoute component={Comment} />}
+          />
         </Routes>
       </AuthContextComponent>
     </>

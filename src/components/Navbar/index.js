@@ -14,8 +14,11 @@ export function Navbar() {
       <Link to="/profile">
         <button>Perfil</button>
       </Link>
-      <Link to="/createList">
+      <Link to="/create-list">
         <button>Criar Lista +</button>
+      </Link>
+      <Link to="/comment">
+        <button>Comentar</button>
       </Link>
     </div>
   );
