@@ -43,7 +43,8 @@ export function TitleTvShow() {
   console.log(tvShowComments);
   return (
     <div>
-      <h1>{tvShow.name}</h1>
+      <h1 class="title"><span>{tvShow.name}</span></h1>
+      <br />
       <Comment title={tvShow} />
       {tvShowComments.map((currentComment) => {
         return (

@@ -43,7 +43,8 @@ export function TitleMovie() {
   console.log(movie);
   return (
     <div>
-      <h1>{movie.title}</h1>
+      <h1 class="title"><span>{movie.title}</span></h1>
+      <br />
       <Comment title={movie} />
       {movieComments.map((currentComment) => {
         return (

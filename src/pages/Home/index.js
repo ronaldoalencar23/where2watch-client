@@ -38,31 +38,33 @@ export function Home() {
   }, []);
 
   return (
-    <div>
-      {movie.map((currentMovie) => {
-        return (
-          <>
-            <Link to={`/title/movie/${currentMovie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${currentMovie.poster_path}`}
-                alt={currentMovie.title}
-              />
-            </Link>
-          </>
-        );
-      })}
-      {tvShows.map((currentTvShows) => {
-        return (
-          <>
-            <Link to={`/title/tv-show/${currentTvShows.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${currentTvShows.poster_path}`}
-                alt={currentTvShows.title}
-              />
-            </Link>
-          </>
-        );
-      })}
+    <div class="row">
+      <div class="movie-list col-lg-8 mx-auto">
+        {movie.map((currentMovie) => {
+          return (
+            <div class="movie-item">
+              <Link to={`/title/movie/${currentMovie.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${currentMovie.poster_path}`}
+                  alt={currentMovie.title}
+                />
+              </Link>
+            </div>
+          );
+        })}
+        {tvShows.map((currentTvShows) => {
+          return (
+            <div class="tv-show-item">
+              <Link to={`/title/tv-show/${currentTvShows.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${currentTvShows.poster_path}`}
+                  alt={currentTvShows.title}
+                />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

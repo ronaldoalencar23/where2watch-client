@@ -1,0 +1,141 @@
+body {
+    background-image: url('/img/movie-background-collage.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#root {
+    padding-top: 100px;
+}
+
+h1.title {
+    text-align: center;
+}
+
+h1.title > span {
+    display: inline-block;
+    background: #fff;
+    padding: 8px 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    position: relative;
+    padding-left: 70px;
+}
+
+h1.title > span:before {
+    content: "";
+    background-image: url("/img/movie-roll.png");
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: -40px;
+    top: -10px;
+}
+
+div.navbar.bg-dark {
+    background-color: #162433 !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    display: flex;
+}
+
+.navbar .space {
+    flex: 1;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 20px 20px;
+    transition: background-color 0.2s;
+}
+
+.navbar button:hover {
+    background-color: #ffffff11;
+}
+
+.movie-item,
+.tv-show-item {
+    display: inline-flex;
+    width: 150px;
+    height: 219px;
+    vertical-align: middle;
+    margin: 20px 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    transform: scale(1);
+    transition: transform 0.2s;
+    z-index: 1;
+    position: relative;
+}
+
+.movie-item img,
+.tv-show-item img {
+    width: 100%;
+    height: calc(100% + 10px);
+}
+
+.movie-item:hover,
+.tv-show-item:hover {
+    transform: scale(1.2);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.movie-list-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.movie-list-group button {
+    margin: 0 20px;
+}
+
+form {
+    background: #193c75cc;
+    display: block;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    margin: 0 auto;
+}
+
+form.form-large {
+    max-width: 1000px;
+}
+
+form label {
+    color: white;
+    display: block;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+}
+
+input + label,
+textarea + label,
+input + button,
+textarea + button {
+    margin-top: 10px;
+}
+
+textarea {
+    resize: none;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    background: #296486;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}

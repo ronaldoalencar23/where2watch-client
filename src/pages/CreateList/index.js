@@ -74,17 +74,20 @@ export function CreateList() {
   const allTitles = [...movie, ...tvShows];
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} class="form-large">
         <label htmlFor="name">Nome da lista</label>
         <input id="name" type="text" name="name" onChange={handleChange} />
         <button type="submit">Criar</button>
+        <br />
         {allTitles.map((currentTitle) => {
           return (
-            <>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${currentTitle.poster_path}`}
-                alt={currentTitle.title}
-              />
+            <div class="movie-list-group">
+              <div class="movie-item">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${currentTitle.poster_path}`}
+                  alt={currentTitle.title}
+                />
+              </div>
               {currentTitle.isAdd ? (
                 <button type="button" onClick={() => removeTitle(currentTitle)}>
                   Remover
@@ -94,7 +97,7 @@ export function CreateList() {
                   Adicionar
                 </button>
               )}
-            </>
+            </div>
           );
         })}
       </form>
