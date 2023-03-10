@@ -14,6 +14,9 @@ import { TitleMovie } from "./pages/TitleMovie";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { TitleTvShow } from "./pages/TitlteTvShow";
+import { CommentDetail } from "./pages/CommentDetail";
+import { CommentEdit } from "./pages/CommentEdit";
+import { ListDetail } from "./pages/ListDetail";
 
 function App() {
   return (
@@ -33,6 +36,7 @@ function App() {
             element={<ProtectedRoute component={ProfileEdit} />}
           />
           <Route path="/create-list" element={<CreateList />} />
+          <Route path="/list/:myListId" element={<ListDetail />} />
           <Route path="/title/movie/:id" element={<TitleMovie />} />
           <Route path="/title/tv-show/:id" element={<TitleTvShow />} />
           <Route path="/feed" element={<ProtectedRoute component={Feed} />} />
@@ -41,6 +45,8 @@ function App() {
             path="/comment"
             element={<ProtectedRoute component={Comment} />}
           />
+          <Route path="/comment/:commentId" element={<CommentDetail />} />
+          <Route path="/comment/edit/:commentId" element={<CommentEdit />} />
         </Routes>
       </AuthContextComponent>
     </>

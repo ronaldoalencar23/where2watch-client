@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import { Comment } from "../../components/Comment";
 
@@ -29,7 +29,7 @@ export function TitleTvShow() {
     async function fetchComments() {
       try {
         const response = await api.get("/comment");
-        console.log(response);
+        console.log(response.data);
         setComment(response.data);
       } catch (err) {
         console.log(err);
@@ -37,18 +37,20 @@ export function TitleTvShow() {
     }
     fetchComments();
   }, []);
-  const tvShowComments = comment.filter(
-    (currentComment) => currentComment.title === id
-  );
-  console.log(tvShow);
+  const tvShowComments = comment.filter((currentComment) => {
+    return currentComment.title.id === Number(id);
+  });
+  console.log(tvShowComments);
   return (
     <div>
       <h1>{tvShow.name}</h1>
-      <Comment type={false} />
+      <Comment title={tvShow} />
       {tvShowComments.map((currentComment) => {
         return (
           <>
-            <h2>{currentComment.header}</h2>
+            <Link to={`/comment/${currentComment._id}`}>
+              <h2>{currentComment.header}</h2>
+            </Link>
           </>
         );
       })}

@@ -37,15 +37,14 @@ export function TitleMovie() {
     }
     fetchComments();
   }, []);
-  const movieComments = comment.filter(
-    (currentComment) => currentComment.title === id
-  );
-
+  const movieComments = comment.filter((currentComment) => {
+    return currentComment.title.id === Number(id);
+  });
   console.log(movie);
   return (
     <div>
       <h1>{movie.title}</h1>
-      <Comment type={true} />
+      <Comment title={movie} />
       {movieComments.map((currentComment) => {
         return (
           <>

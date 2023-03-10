@@ -7,7 +7,8 @@ export function Comment(props) {
   const [form, setForm] = useState({
     header: "",
     body: "",
-    isMovie: true,
+    title: {},
+    // isMovie: true,
   });
 
   const handleChange = (e) => {
@@ -18,7 +19,7 @@ export function Comment(props) {
     e.preventDefault();
 
     try {
-      await api.post(`/comment/${id}`, { ...form, isMovie: props.type });
+      await api.post(`/comment/${id}`, { ...form, title: props.title });
 
       setForm({ header: "", body: "" }); // limpa o formulário
       window.location.reload();

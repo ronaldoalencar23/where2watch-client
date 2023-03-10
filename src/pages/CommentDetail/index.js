@@ -1,7 +1,49 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { api } from "../../api/api";
 
 export function CommentDetail() {
-  const [comment, setComment] = useState();
+  const [comment, setComment] = useState({
+    header: "",
+    body: "",
+    title: {
+      id: 0,
+      poster_path: "",
+    },
+  });
+  const { commentId } = useParams();
 
-  return;
+  useEffect(() => {
+    async function fetchComment() {
+      try {
+        const response = await api.get(`/comment/${commentId}`);
+        setComment(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchComment();
+  }, []);
+
+  console.log(comment);
+  return (
+    <>
+      {comment && (
+        <div>
+          <h1>{comment.header}</h1>
+          <p>{comment.body}</p>
+          <Link to={`/title/tv-show/${comment.title.id}`}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${comment.title.poster_path}`}
+              alt={comment.header}
+            />
+          </Link>
+          <Link to={`/comment/edit/${commentId}`}>
+            <button>Editar</button>
+          </Link>
+        </div>
+      )}
+    </>
+  );
 }
