@@ -44,10 +44,28 @@ h1.title-2 > span {
     padding: 8px 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     position: relative;
+    padding-left: 70px;
+    padding-right: 30px;
 }
 
 h1.title-2 > span span {
     font-size: 12pt;
+    line-height:20pt;
+    display: block;
+}
+
+h1.title-2 > span:before {
+    content: "";
+    background-image: url("/img/user.png");
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: -40px;
+    top: -5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 50%;
 }
 
 div.navbar.bg-dark {
@@ -118,6 +136,7 @@ div.navbar.bg-dark {
     border-radius: 3px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     margin: 0 auto;
+    color: white;
 }
 
 form {
@@ -158,11 +177,20 @@ textarea {
     resize: none;
 }
 
-form button {
+form button,
+.form-painel button {
     padding: 10px 20px;
     border: none;
     background: #296486;
     color: white;
     font-weight: bold;
     border-radius: 4px;
+}
+
+.form-painel.form-btn  {
+    text-align: right;
+}
+
+.form-painel.form-btn button {
+    margin-left: 10px;
 }

@@ -68,10 +68,12 @@ export function Profile() {
           </div>
         </>
       )}
-      <Link to="/profile/edit">
-        <button>Editar</button>
-      </Link>
-      <button onClick={handleLogOut}>Sair</button>
+      <div class="form-painel form-btn">
+        <Link to="/profile/edit">
+          <button>Editar</button>
+        </Link>
+        <button onClick={handleLogOut}>Sair</button>
+      </div>
     </>
   );
 }
