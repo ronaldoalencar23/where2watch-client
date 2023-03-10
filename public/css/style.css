@@ -34,6 +34,7 @@ h1.title > span:before {
     top: -10px;
 }
 
+
 h1.title-2 {
     text-align: center;
 }
@@ -193,4 +194,17 @@ form button,
 
 .form-painel.form-btn button {
     margin-left: 10px;
+}
+
+.form-painel.list {
+    text-align: center;
+}
+
+h2.comentario {
+    padding: 20px;
+    background: #29648688;
+    color: white;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
 }

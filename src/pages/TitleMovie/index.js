@@ -49,7 +49,7 @@ export function TitleMovie() {
       {movieComments.map((currentComment) => {
         return (
           <>
-            <h2>{currentComment.header}</h2>
+            <h2 class="comentario">{currentComment.header}</h2>
           </>
         );
       })}

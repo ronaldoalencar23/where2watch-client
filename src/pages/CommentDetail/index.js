@@ -30,15 +30,17 @@ export function CommentDetail() {
   return (
     <>
       {comment && (
-        <div>
+        <div class="form-painel">
           <h1>{comment.header}</h1>
           <p>{comment.body}</p>
+          <div class="movie-item">
           <Link to={`/title/tv-show/${comment.title.id}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500${comment.title.poster_path}`}
               alt={comment.header}
             />
           </Link>
+          </div>
           <Link to={`/comment/edit/${commentId}`}>
             <button>Editar</button>
           </Link>

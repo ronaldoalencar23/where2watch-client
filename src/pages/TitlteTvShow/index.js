@@ -50,7 +50,7 @@ export function TitleTvShow() {
         return (
           <>
             <Link to={`/comment/${currentComment._id}`}>
-              <h2>{currentComment.header}</h2>
+              <h2 class="comentario">{currentComment.header}</h2>
             </Link>
           </>
         );
