@@ -41,29 +41,31 @@ export function Profile() {
     <>
       {!load && (
         <>
-          <h1>{user.name}</h1>
-          <p>{user.email}</p>
+          <h1 class="title-2"><span>{user.name}<br /><span>{user.email}</span></span></h1>
 
-          {user.comments.map((currentComment) => {
-            return (
-              <>
-                <Link to={`/comment/${currentComment._id}`}>
-                  <h2>{currentComment.header}</h2>
-                </Link>
-                <p>{currentComment.body}</p>
-              </>
-            );
-          })}
+          <br />
+          <div class="form-painel">
+            {user.comments.map((currentComment) => {
+              return (
+                <>
+                  <Link to={`/comment/${currentComment._id}`}>
+                    <h2>{currentComment.header}</h2>
+                  </Link>
+                  <p>{currentComment.body}</p>
+                </>
+              );
+            })}
 
-          {user.lists.map((currentList) => {
-            return (
-              <>
-                <Link to={`/list/${currentList._id}`}>
-                  <h2>{currentList.name}</h2>
-                </Link>
-              </>
-            );
-          })}
+            {user.lists.map((currentList) => {
+              return (
+                <>
+                  <Link to={`/list/${currentList._id}`}>
+                    <h2>{currentList.name}</h2>
+                  </Link>
+                </>
+              );
+            })}
+          </div>
         </>
       )}
       <Link to="/profile/edit">

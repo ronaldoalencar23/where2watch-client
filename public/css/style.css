@@ -34,6 +34,22 @@ h1.title > span:before {
     top: -10px;
 }
 
+h1.title-2 {
+    text-align: center;
+}
+
+h1.title-2 > span {
+    display: inline-block;
+    background: #fff;
+    padding: 8px 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+h1.title-2 > span span {
+    font-size: 12pt;
+}
+
 div.navbar.bg-dark {
     background-color: #162433 !important;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -91,6 +107,17 @@ div.navbar.bg-dark {
 
 .movie-list-group button {
     margin: 0 20px;
+}
+
+.form-painel {
+    background: #193c75cc;
+    display: block;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    margin: 0 auto;
 }
 
 form {
