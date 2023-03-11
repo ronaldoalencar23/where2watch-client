@@ -3,7 +3,7 @@ export function Navbar() {
   return (
     <div class="navbar bg-dark fixed-top">
       <Link to="/">
-        <h1>Where 2 Watch</h1>
+        <h1>What 2 Watch</h1>
       </Link>
       <div class="space"></div>
       <Link to="/signup">

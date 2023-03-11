@@ -48,7 +48,7 @@ export function Login() {
         value={form.password}
         onChange={handleChange}
       />
-      <button type="submit">Entrar!</button>
+      <button type="submit">Entrar</button>
     </form>
   );
 }
